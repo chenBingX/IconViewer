@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>ch.dasoft.iconviewer</id>
   <name>IconViewer</name>
-  <version>1.13</version>
+  <version>2.1</version>
   <vendor email="david.sommer@dasoft.ch" url="https://www.dasoft.ch">dasoft.ch</vendor>
 
   <description><![CDATA[
@@ -10,6 +10,7 @@
   <br/>
   <a href="https://github.com/davidsommer/IconViewer">GitHub</a>
   <br/>
+  Update by CoorChice.
   Preview project images as an icon in your project explorer.
   Helpful if you have a lot of icons in your project, <b>IconViewer</b> gives you a nice preview icon.
   <br/>
@@ -38,7 +39,7 @@
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+  <idea-version until-build="186.*"/>
 
   <!-- Make plugin available to all IntelliJ IDEs
      http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->

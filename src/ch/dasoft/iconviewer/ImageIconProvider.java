@@ -15,11 +15,12 @@ import java.io.FileNotFoundException;
 
 /**
  * Created by David Sommer on 19.05.17.
+ *
  * @author davidsommer
  */
-public class ImageIconProvider  extends IconProvider {
+public class ImageIconProvider extends IconProvider {
 
-    private static final int IMG_WIDTH  = 16;
+    private static final int IMG_WIDTH = 16;
     private static final int IMG_HEIGHT = 16;
 
     public Icon getIcon(@NotNull PsiElement psiElement, int flags) {
@@ -27,20 +28,23 @@ public class ImageIconProvider  extends IconProvider {
         if (checkImagePath(containingFile)) {
             Image image;
             try {
-                image = ImageLoader.loadFromStream(new BufferedInputStream(new FileInputStream(containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath())));
-            } catch (FileNotFoundException e) {
+                ImageIcon imageIcon = new ImageIcon(containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath());
+                image = imageIcon.getImage().getScaledInstance(IMG_WIDTH, IMG_HEIGHT, Image.SCALE_SMOOTH);
+//                image = ImageLoader.loadFromStream(new BufferedInputStream(new FileInputStream(containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath())));
+            } catch (Exception e) {
                 e.printStackTrace();
                 throw new IllegalStateException("Error loading preview Icon - " + containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath());
             }
 
             if (image != null) {
-                return new ImageIcon(image.getScaledInstance(IMG_WIDTH, IMG_HEIGHT, Image.SCALE_SMOOTH));
+                return new ImageIcon(image);
+//                return new ImageIcon(image.getScaledInstance(IMG_WIDTH, IMG_HEIGHT, Image.SCALE_SMOOTH));
             }
         }
         return null;
     }
 
     private boolean checkImagePath(PsiFile containingFile) {
-        return containingFile != null && containingFile.getVirtualFile() != null && containingFile.getVirtualFile().getCanonicalFile() != null && containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath() != null && UIUtils.isImageFile(containingFile.getName()) && ! containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath().contains(".jar");
+        return containingFile != null && containingFile.getVirtualFile() != null && containingFile.getVirtualFile().getCanonicalFile() != null && containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath() != null && UIUtils.isImageFile(containingFile.getName()) && !containingFile.getVirtualFile().getCanonicalFile().getCanonicalPath().contains(".jar");
     }
 }
