@@ -1,8 +1,8 @@
 <idea-plugin>
   <id>ch.dasoft.iconviewer</id>
   <name>IconViewer</name>
-  <version>2.1</version>
-  <vendor email="david.sommer@dasoft.ch" url="https://www.dasoft.ch">dasoft.ch</vendor>
+  <version>3.0</version>
+  <vendor email="icechenx@gmail.com" url="https://github.com/chenBingX/IconViewer">coorchice</vendor>
 
   <description><![CDATA[
 
@@ -29,17 +29,13 @@
 
   <change-notes><![CDATA[
    <ul>
-   <li>06.09.2017 Version 1.13 - clean up an added svg support</li>
-   <li>06.07.2017 Version 1.12 - bugfix ignore images from external jars</li>
-   <li>23.05.2017 Version 1.11 - bugfix, platform support</li>
-   <li>22.05.2017 Version 1.1  - bugfixes</li>
-   <li>19.05.2017 Version 1.0  - init</li>
+   <li>07.09.2019 Version 3.0 - new version support</li>
    </ul>
     ]]>
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version until-build="186.*"/>
+  <idea-version until-build="198.*"/>
 
   <!-- Make plugin available to all IntelliJ IDEs
      http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
